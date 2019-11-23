@@ -65,14 +65,14 @@ namespace Diabeatit.Controllers
         }
 
         // GET: LogBook/Edit/5
-        public async Task<IActionResult> Edit(long? id)
+        public async Task<IActionResult> Edit(long? id, long? userId)
         {
-            if (id == null)
+            if (id == null || userId ==null)
             {
                 return NotFound();
             }
 
-            var logBook = await _context.LogBook.FindAsync(id);
+            var logBook = await _context.LogBook.FindAsync(id,userId);
             if (logBook == null)
             {
                 return NotFound();
@@ -85,9 +85,9 @@ namespace Diabeatit.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("LogBookId,UserId,LogDate,LogTime,MeterReading,LogNotes,RoutineId")] LogBook logBook)
+        public async Task<IActionResult> Edit(long id, long UserID, [Bind("LogBookId,UserId,LogDate,LogTime,MeterReading,LogNotes,RoutineId")] LogBook logBook)
         {
-            if (id != logBook.LogBookId)
+            if (id != logBook.LogBookId || UserID != logBook.UserId)
             {
                 return NotFound();
             }
