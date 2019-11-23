@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Diabeatit.Models.LogBook>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LogDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MeterReading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogNotes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoutineId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeterReading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogNotes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoutineId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

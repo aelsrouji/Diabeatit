@@ -1,0 +1,49 @@
+﻿@model Diabeatit.Models.LogBook
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>LogBook</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LogDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LogDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LogTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LogTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MeterReading)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MeterReading)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LogNotes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LogNotes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RoutineId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RoutineId)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
